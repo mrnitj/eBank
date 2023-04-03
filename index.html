@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="container">
+            <div class="container2">
+                <h1 style="color: rgb(0, 0, 0)">E-bank</h1>
+                <p><label for="">DEPOSIT</label></p>
+                <div class="deposit">
+                    <input type="number" placeholder="Enter the amount" id="credit" />
+                    <button id="dbtn" onclick="deposit()">OK</button>
+                </div>
+                <p><label for="">WITHDRAW</label></p>
+                <div class="withdraw">
+                    <input type="number" placeholder="Enter the amount" id="debit" />
+                    <button id="wbtn" onclick="witdraw()">OK</button>
+                </div>
+                <div class="result">
+                    <button id="result" onclick="result()">BALANCE</button>
+                </div>
+                <p id="balanceamt">$0.00</p>
+            </div>
+        </div>
+
+        <script>
+            var a=0;
+            var b;
+            var c;
+            function deposit() {
+                a += Number(document.getElementById("credit").value);
+                
+                document.getElementById("credit").value = "";
+                alert("The amount "+a+" has been credited to your account")
+            }
+            function witdraw() {
+                
+                if(document.getElementById("debit").value>a){
+                    alert("insufficient amount! Please check the balance box");
+                }else{
+
+                    b = document.getElementById("debit").value;
+                    a -= Number(b);
+                    alert("The amount "+b+" has been debited to your account")
+                   
+
+                }
+                
+
+                document.getElementById("debit").value = "";
+            }
+
+            function result() {
+                document.getElementById("balanceamt").innerHTML = "$" + a + ".00";
+            }
+            
+        </script>
+    </body>
+</html>
